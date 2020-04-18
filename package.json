@@ -8,10 +8,16 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "faker": "^4.1.0",
     "firebase": "^7.8.2",
+    "lodash": "^4.17.15",
+    "material-ui-dropzone": "^2.4.9",
     "react": "^16.12.0",
+    "react-butterfiles": "^1.3.3",
     "react-dom": "^16.12.0",
     "react-firestore": "^1.0.1",
+    "react-loading-overlay": "^1.0.1",
+    "react-query": "^1.2.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-with-firebase-auth": "^1.3.0"
@@ -22,7 +28,9 @@
     "live": " sh -ac '. ./.env.live;  firebase use sangstagram-live  && react-scripts build && firebase deploy'",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +46,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-create-react-app": "^2.1.1",
+    "@storybook/react": "^5.3.18"
   }
 }

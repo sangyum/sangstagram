@@ -1,0 +1,23 @@
+.CommentsSpace {
+    border-top-style: inset;
+}
+
+.TextField {
+    width: 100ch;
+}
+
+.Loading {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    border-radius: 25px;
+    width: 750px;
+}
+
+.PostPic {
+    width: 350px;
+    border-radius: 25px;
+}
+

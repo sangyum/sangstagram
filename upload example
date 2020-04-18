@@ -1,0 +1,50 @@
+import React, { useState } from 'react';
+import Files from 'react-butterfiles';
+
+const Upload = () => {
+    const [filesState, setFilesState] = useState([])
+    // filesState is prop (constant given by parent) and setFilesState is state (which can be changed with function)
+    // this.state is for class components ONLY, useState is for functional component
+    const [errorsState, setErrorsState] = useState([])
+
+    const doThisWhenFilesAreSuccessfullyUploaded = (files) => {
+        setFilesState(files);
+    }
+    //this is a function that takes files as a parameter and uses the function sets file's state to files using setFilesState
+
+    const doThisWhenThereIsError = (errors) => {
+        setErrorsState(errors);
+    }
+
+    return (
+        <Files
+            multiple={true} 
+            maxSize="2mb"
+            multipleMaxSize="10mb"
+            multipleMaxCount={3}
+            accept={["application/pdf","image/jpg","image/jpeg"]}
+            onSuccess={doThisWhenFilesAreSuccessfullyUploaded}
+            onError={doThisWhenThereIsError}
+            // onSuccess and onError are event handlers, fancy word for functions that change state of a prop inside the children wihtout parent
+        >
+            {({ browseFiles, getDropZoneProps }) => (
+                <>
+                    <div {...getDropZoneProps({ className: "myDropZone" })}/>
+                    <button onClick={browseFiles}>Select files...</button>
+                    <ol>
+                        {filesState.map(file => (
+                            <li key={file.name}>{file.name}</li>
+                        ))}
+                        {errorsState.map(error => (
+                            <li key={error.file.name}>
+                                {error.file.name} - {error.type}
+                            </li>
+                        ))}
+                    </ol>
+                </>
+            )}
+        </Files>
+    )
+}
+
+export default Upload;
